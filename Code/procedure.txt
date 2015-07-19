@@ -1,0 +1,10 @@
+procedure (Data structures and Algorithms)
+
+	1.Understand the concepts (in concepts.txt)
+		1.1 Write your way of understanding of problem
+		1.2 Good References (from where u understood the concepts )
+
+	2.Implementation in C++ (in *.cpp)
+		2.1 Write your own implementation.
+		2.2 Good references
+	3.Solve most of the problems(in problems folder)
