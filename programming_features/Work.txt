@@ -1,0 +1,11 @@
+
+
+1.Multi-threading
+
+2. Scaling(vertical and horizontal)
+
+3. Memory management
+
+4. OS features(list them)
+
+5. process vs thread
