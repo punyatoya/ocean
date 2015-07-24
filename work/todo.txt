@@ -1,11 +1,7 @@
-30/may/2015
-
-	1. Google search query.
-	2. Volatile keyword
-
-31/may/2015
 
 
-	1. Learn all the windows shortcut keys
-	2. Learn all keywords in C.
-	3. Learn basic pointers in C.
+25 july 2015:
+	1. Write dequeue data structure and follow procedure.
+
+
+
