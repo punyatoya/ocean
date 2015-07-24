@@ -1,0 +1,70 @@
+BASIC CONCEPS OF OOPS
+
+
+*Objects
+*Classes
+*Data abstraction and encapsulation
+*Inheritance
+*Polymorphism
+*Dynamic Binding
+*Message Passing
+
+
+Objects
+--------
+
+
+Objects are the basic run-time entities in an object-oriented system
+
+This is the basic unit of object oriented programming. That is both data and function that operate on data are bundled as a unit called as object. 
+
+
+
+Classes
+--------
+
+Class is  the blueprint of the object.This doesn't actually define any data, but it does define what the class name means, that is, what an object of the class will consist of and what operations can be performed on such an object.
+
+ Objects are the variables of the class.Class is a collection of objects of similar type.
+
+
+ Data Abstraction and Manipulation
+ ----------------------
+
+ The wrapping of the data and functions into the single unit is known as encapsulation.DAta is not accessible to the outside world and only those functions which are wrapped in the class can access it.
+
+ The insulation of the data from direct access by the program is called data hiding.
+
+ Data abstraction refers to, providing only essential information to the outside world and hiding their background details, i.e., to represent the needed information in program without presenting the details.
+
+ For example, a database system hides certain details of how data is stored and created and maintained. 
+
+
+Inheritance
+------------
+
+Inheritance is the process by which objects of one clss acquire the properties of objects of another class.It supports the concept of hirerarchical classification
+
+One of the most useful aspects of object-oriented programming is code reusability. As the name suggests Inheritance is the process of forming a new class from an existing class that is from the existing class called as base class, new class is formed called as derived class.
+
+
+
+Polymorphism
+-------------
+
+
+The ability to use an operator or function in different ways in other words giving different meaning or functions to the operators or functions is called polymorphism. Poly refers to many. That is a single function or an operator functioning in many ways different upon the usage is called polymorphism.
+
+e.g operator and function overloading
+
+
+Dynamic Binding
+---------------
+
+Binding refers the linking of a procedure call to the code to be executed in response to the call.Dynamic binding means that the code associated with a given procedural call is not known untill the time of the call at run-time. It is associated with polymorphism and inheritance.
+
+
+Message-Passing
+----------------
+
+An object-oriented program consists of set of objects that communicate with each other.Objects communicate with each other by sending and receiving information.

@@ -1,0 +1,7 @@
+
+
+25 july 2015:
+	1. Write dequeue data structure and follow procedure.
+
+
+

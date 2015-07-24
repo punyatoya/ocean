@@ -1,0 +1,460 @@
+Auto
+
+	Defines a local variable as having a local lifetime.
+
+	auto is a keyword that indicates a variable is local to a block.
+
+	Keyword auto uses the following syntax:
+
+	[auto] data-definition;
+	As the local lifetime is the default for local variables, auto keyword is extremely rarely used. 
+
+
+Break
+
+
+	Passes control out of the compound statement.
+
+	The break statement causes control to pass to the statement following the innermost enclosing while, do, for, or switch statement. The syntax is simply
+
+	break;
+
+
+
+const 
+
+	Makes variable value or pointer parameter unmodifiable.
+
+	When const is used with a variable, it uses the following syntax:
+
+	const variable-name [ = value];
+	In this case, the const modifier allows you to assign an initial value to a variable that cannot later be changed by the program. For example,
+
+	const my_age = 32;
+	Any assignments to 'my_age' will result in a compiler error. However, such declaration is quite different than using
+
+	#define my_age 32
+	In the first case, the compiler allocates a memory for 'my_age' and stores the initial value 32 there, but it will not allow any later assignment to this variable. But, in the second case, all occurences of 'my_age' are simply replaced with 32 by the preprocessor, and no memory will be allocated for it. 
+
+	Warning: a const variable can be indirectly modified by a pointer, as in the following example:
+
+	*(int*)&my_age = 35;
+
+
+	When the const modifier is used with a pointer parameter in a function's parameter list, it uses the following syntax:
+
+	function-name (const type *var-name)
+	Then, the function cannot modify the variable that the pointer points to. For example,
+
+	int printf (const char *format, ...);
+	Here the printf function is prevented from modifying.
+
+continue
+
+
+	Passes control to the begining of the loop.
+
+	continue causes control to pass to the end of the innermost enclosing while, do, or for statement, at which point the loop continuation condition is re-evaluated. The syntax is simply
+
+	continue;
+	For example,
+
+	for (i = 0; i < 20; i++)
+  	{
+    	if (array[i] == 0)
+      	continue;
+    	array[i] = 1/array[i];
+  	}
+	This example changes each element in the array with its reciprocal, but skips elements which are equal to zero.
+
+enum
+
+	Defines a set of constants of type int.
+
+	The syntax for defining constants using enum is
+
+	enum [tag] {name [=value], ...};
+	The set can optionally be given a type tag name with tag. name is the name of a constant that can optionally be assigned the (constant) value of value, etc. For example,
+
+	enum Numbers {One = 1, Two = 2, Three = 3, Four = 4, Five = 5};
+	If value is missing, then a value is assumed to be the value of the previous constant in the list + 1. If this is the first constant in the list, the default value is 0. 
+
+	If you give a type tag name, then you can declare variables of enumerated type using
+
+	enum tag variable-names;
+	For example,
+
+	enum Numbers x, y, z;
+	declares three variables x, y and z, all of type Numbers (they are, in fact, integer variables). More precise, 'enum tag' becomes a new type which is equal in rights with any built-in type.
+
+
+extern
+
+Indicates that an identifier is defined elsewhere.
+
+Keyword extern indicates that the actual storage and initial value of a variable, or body of a function, is defined elsewhere, usually in a separate source code module. So, it may be applied to data definitions and function prototypes:
+
+extern data-definition;
+extern function-prototype;
+For example,
+
+extern int _fmode;
+extern void Factorial (int n);
+The keyword extern is optional (i.e. default) for a function prototype.
+
+
+float, double
+
+Floating point data types.
+
+The keyword float usually represents a single precision floating point data type, and double represents a double precision floating point data type.
+
+
+
+
+for
+
+For loop.
+
+For-loop is yet another kind of loop. It uses for keyword, with the following syntax:
+
+for ([expr1]; [expr2]; [expr3]) statement
+
+
+goto
+
+	Unconditionally transfer control.
+
+	goto may be used for transfering control from one place to another. The syntax is:
+
+	goto identifier;
+	Control is unconditionally transferred to the location of a local label specified by identifier. For example,
+
+	Again:
+ 	 ...
+  	goto Again;
+
+
+if, else
+
+	Conditional statement.
+
+	Keyword if is used for conditional execution. The basic form of if uses the following syntax:
+
+	if (expression)
+   statement1
+	Alternatively, if may be used together with else, using the following syntax:
+
+	if (expression)
+   		statement1
+	else
+   		statement2
+
+
+int, char
+
+	Basic data types (integer and character).
+
+	Variables of type int are one machine-type word in length. They can be signed (default) or unsigned, which means that in this configuration of the compiler they have by default a range of -32768 to 32767 and 0 to 65535 respectively.
+
+	Variables of type char are 1 byte in length. They can be signed or unsigned, which means they have a range of -128 to 127 and 0 to 255, respectively. 
+
+register
+
+	Tells the compiler to store the variable being declared in a CPU register.
+
+	syntax=register data-definition;
+	The register type modifier tells the compiler to store the variable being declared in a CPU register (if possible), to optimize access. For example,
+
+	register int i;
+
+	It tells the compiler to try to use a CPU register, instead of RAM, to store the variable. Registers are in the CPU and much faster to access than RAM. But it's only a suggestion to the compiler, and it may not follow through.
+
+return
+
+
+	Exits the function.
+
+	return exits immediately from the currently executing function to the calling routine, optionally returning a value. The syntax is:
+
+	return [expression];
+	For example,
+
+	int sqr (int x)
+	{
+  		return (x*x);
+	}
+
+short, long, signed, unsigned
+
+	Type modifiers.
+
+	A type modifier alters the meaning of the base type to yield a new type. Each of these type modifiers can be applied to the base type int. The modifiers signed and unsigned can be applied to the base type char. In addition, long can be applied to double. 
+
+	When the base type is omitted from a declaration, int is assumed. For example,
+
+	long x;                 // 'int' is implied
+	unsigned char ch;
+	signed int i;           // 'signed' is default
+	unsigned long int l;    // 'int' is accepted, but not needed
+	In this implementation of the compiler, the valid range of valid data types is as listed in the following table:
+
+	short int              -32768 to 32767
+	long int               -2147483648 to 2147483647
+	signed char            -128 to 127
+	signed int             -32768 to 32767 (signed is default)
+                       [or -2147483648 to 2147483647 if '-mnoshort' is given]
+	signed short int       -32768 to 32767
+	signed long int        -2147483648 to 2147483647
+	unsigned char          0 to 255
+	unsigned int           0 to 65535
+    	                   [or 0 to 4294967295 if '-mnoshort' is given]
+	unsigned short int     0 to 65535
+
+
+sizeof
+
+	Returns the size of the expression or type.
+
+	Keyword sizeof is, in fact, an operator. It returns the size, in bytes, of the given expression or type (as type size_t). Its argument may be an expression of a type name:
+
+	sizeof expression
+	sizeof (type)
+	For example,
+
+	workspace = calloc (100, sizeof (int));
+	memset(buff, 0, sizeof buff);
+	nitems = sizeof (table) / sizeof (table[0]);
+
+
+static
+
+	Preserves variable value to survive after its scope ends.
+
+	Keyword static may be applied to both data and function definitions:
+
+	static data-definition;
+	static function-definition;
+	For example,
+
+	static int i = 10;
+	static void PrintCR (void) { putc ('\n'); }
+	static tells that a function or data element is only known within the scope of the current compile. In addition, if you use the static keyword with a variable that is local to a function, it allows the last value of the variable to be preserved between successive calls to that function. 
+
+
+	Static defined local variables do not lose their value between function calls. In other words they are global variables, but scoped to the local function they are defined in.
+
+	Static global variables are not visible outside of the C file they are defined in.
+
+	Static functions are not visible outside of the C file they are defined in.
+
+
+	Unlike global functions in C, access to static functions is restricted to the file where they are declared. Therefore, when we want to restrict access to functions, we make them static. Another reason for making functions static can be reuse of the same function name in other files.
+
+
+
+struct
+
+	Groups variables into a single record.
+
+	The syntax for defining records is:
+
+	struct [struct-type-name]
+  	{
+    	[type variable-names] ;
+    	...
+  	}	[structure-variables] ;
+
+
+ example:	struct my_struct
+  			{
+    			char name[80], phone_number[80];
+    			int age, height;
+  			} my_friend;
+
+
+
+switch, case, default
+
+	Branches control.
+
+	switch causes control to branch to one of a list of possible statements in the block of statements. The syntax is
+
+	switch (expression) statement
+		The statement statement is typically a compound statement (i.e. a block of statements enclosed in braces). The branched-to statement is determined by evaluating expression, which must return an integral type. The list of possible branch points within statement is determined by preceding substatements with
+
+	case constant-expression :
+		where constant-expression must be an int and must be unique. 
+
+		Once a value is computed for expression, the list of possible constant-expression values determined from all case statements is searched for a match. If a match is found, execution continues after the matching case statement and continues until a break statement is encountered or the end of statement is reached. If a match is not found and this statement prefix is found within statement,
+
+	default :
+		execution continues at this point. Otherwise, statement is skipped entirely. For example,
+
+	switch (operand)
+  	{
+    	case MULTIPLY:
+      		x *= y; break;
+    	case DIVIDE:
+      		x /= y; break;
+    	case ADD:
+      		x += y; break;
+    	case SUBTRACT:
+      		x -= y; break;
+    	case INCREMENT2:
+      		x++;
+    	case INCREMENT1:
+      		x++; break;
+    	case EXPONENT:
+    	case ROOT:
+    	case MOD:
+      		printf ("Not implemented!\n");
+      		break;
+    	default:
+    	  printf("Bug!\n");
+      	exit(1);
+  	}
+
+
+typedef
+
+	Creates a new type.
+
+	The syntax for defining a new type is
+
+	typedef type-definition identifier;
+	This statement assigns the symbol name identifier to the data type definition type-definition. For example,
+
+	typedef unsigned char byte;
+	typedef char str40[41];
+	typedef struct {float re, im;} complex;
+	typedef char *byteptr;
+	typedef int (*fncptr)(int);
+	After these definition, you can declare
+
+	byte m, n;
+	str40 myStr;
+	complex z1, z2;
+	byteptr p;
+	fncptr myFunc;
+
+
+union
+
+	Groups variables which share the same storage space.
+
+	A union is similar to a struct, except it allows you to define variables that share storage space. The syntax for defining unions is:
+
+	union [union-type-name]
+  	{
+    	type variable-names;
+    	...
+  	} 	[union-variables] ;
+	For example,
+
+	union short_or_long
+  	{
+    	short i;
+    	long l;
+  	} a_number;
+	The compiler will allocate enough storage in a number to accommodate the largest element in the union.
+
+void
+
+	Empty data type.
+
+	When used as a function return type, void means that the function does not return a value. For example,
+
+	void hello (char *name)
+	{
+  		printf("Hello, %s.", name);
+	}
+	When found in a function heading, void means the function does not take any parameters. For example,
+
+	int init (void)
+	{
+  		return 1;
+	}
+	This is not the same as defining
+
+	int init ()
+	{
+  		return 1;
+	}
+
+
+
+Volatile
+
+
+	The volatile keyword is intended to prevent the compiler from applying any optimizations on objects that can change in ways that cannot be determined by the compiler.
+
+	The system always reads the current value of a volatile object from the memory location rather than keeping its value in temporary register at the point it is requested, even if a previous instruction asked for a value from the same object
+
+	Indicates that a variable can be changed by a background routine.
+
+	Keyword volatile is an extreme opposite of const. It indicates that a variable may be changed in a way which is absolutely unpredictable by analysing the normal program flow (for example, a variable which may be changed by an interrupt handler). This keyword uses the following syntax:
+
+	volatile data-definition;
+	
+
+	e.g
+
+	Volatile keyword tells the compiler that the variable can be changed (sounds senseless) so you should take care while optimizing. For example consider this-
+
+	bool running = true;
+	while(running) {
+    //do something
+	}
+	The compiler may change while(running) to while(1) but if the variable running is being affected by the code outside the while loop, like in multi-threading, this will create a bug very hard to spot. So the correct thing would be to declare running as volatile.
+
+	volatile bool running = true;
+	while(running) {
+    	//do something
+	}
+
+
+
+	taking another simple example of volatile
+
+
+
+	static int foo;
+ 
+	void bar(void) {
+    	foo = 0;
+ 
+    	while (foo != 255)
+         ;
+	}
+
+
+	where the compiler will take it as  while (true) i.e infinite loop
+
+	However, foo might represent a location that can be changed by other elements of the computer system at any time, such as a hardware register of a device connected to the CPU. The above code would never detect such a change; without the volatile keyword, the compiler assumes that the current program is the only part of the system that could change the value (which is by far the most common situation).
+	To prevent the compiler from optimizing code as above, the volatile keyword is used:
+
+	static volatile int foo;
+ 
+	void bar (void) {
+    	foo = 0;
+ 
+    	while (foo != 255)
+        ;
+	}
+
+
+while
+
+
+
+	Repeats execution while the condition is true.
+
+	Keyword while is the most general loop statemens. It uses the following syntax:
+
+	while (expression) statement
+		statement is executed repeatedly as long as the value of expression remains nonzero. The test takes place before each execution of the statement. For example,
+
+	while (*p == ' ') p++;
+	Of course, statement may be a compound statement as well.
+

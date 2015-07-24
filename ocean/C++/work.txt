@@ -1,0 +1,18 @@
+1. Learn oops
+1. List all oops features
+then learn one by one
+
+
+2.create sample project in c++
+use classes as much as u can
+
+
+3.U can also starting creating sample project
+ on wat u doing
+ don’t implement
+ function
+ design classes and their methods
+ README.ME
+
+
+ C++ stl

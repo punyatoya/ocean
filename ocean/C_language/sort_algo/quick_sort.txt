@@ -1,0 +1,108 @@
+QUICK SORT
+
+
+
+ALGORITHM:
+
+*Select an element from the list called as pivot
+
+*Patition the list into two parts such that
+
+	-->All the elements towards the left end of the list are smaller than the pivot.
+
+	-->All the elements towards the right end of the list are greater than the pivot.
+
+*Store the pivot at its correct position between the two parts of the list
+
+*Repeat this process for each of the two sublists created after
+ partitioning.
+
+*This process continues until one element is left in each sublist.
+
+
+
+
+C-code
+
+
+
+pivot=0 (index of the first element)
+n= (number of elements -1 i.e index of the last element)
+arr=list of elements
+
+
+void qs(int arr[], int pivot, int n)
+{
+	int i,j,temp;
+	i=pivot+1;
+	j=n;
+
+	if (pivot>=n)
+		return;
+
+	while (-1)
+	{
+		while ((arr[i]<=arr[pivot]) && (i<n))
+			i++;
+		while (arr[j]>arr[pivot])
+			j--;
+		if(i<j)
+		{
+			temp=arr[j];
+			arr[j]=arr[i];
+			arr[i]=temp;
+		} 
+		else
+		{
+			temp=arr[j];
+			arr[j]=arr[pivot];
+			arr[pivot]=temp;
+			break;
+
+		}
+	}
+	if (pivot==n-1||pivot==n)
+		return;
+	qs(arr,pivot,j-1);
+	qs(arr,j+1,n)
+}
+
+
+
+
+
+Time Complexity:
+
+In the algorithm, we are dividing the list
+if n is the number of elements
+and n is divided
+Let k is number of elements of one part of the list then the number of elements in the second part of the list will be n-k.
+
+As we are saying we are dividing the list by 2
+k=n/2 , n-k=n/2
+
+The relation will be:
+
+f(n)=2f(n/2)+n     (n is the time taken for sorting)
+
+	=2(2f(n/4) + n/2) + n /*Substituting n by n/2*/
+
+	=2^2f(n/4) + 2n
+	= 2^2(2f(n/8) + n/4) + 2n
+	= 2^3f(n/8) + 3n
+	= 2^kf(n/2k) + kn
+
+	n/2^k=1  
+	n=2^k
+
+	taking log both the sides
+
+	logn=log 2^k
+
+	k=logn
+
+	Putting k=logn
+
+	f(n) = nf(1) + n log n
+	So the time complexity=O(nlogn)
+
