@@ -1,5 +1,7 @@
-#include <iostream.h>
+
+#include <iostream>
 #include <vector>
+//Always use space
 using namespace std;
 
 
