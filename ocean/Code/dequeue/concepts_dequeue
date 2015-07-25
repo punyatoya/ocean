@@ -1,0 +1,38 @@
+
+DEQUEUE
+
+
+
+Double-ended-queue is an abstract data type that generalizes a queue
+ ---->for which elements can be added to or removed from either the front (head) or back (tail).
+
+
+Dequeue has sub-types:
+
+ 	*An input-restricted deque is one where deletion can be made from both ends, but insertion can be made at one end only.
+	*An output-restricted deque is one where insertion can be made at both ends, but deletion can be made from one end only.
+
+The basic operations on a deque are enqueue and dequeue on either end
+
+	*insert element at back
+	*insert element at front
+	*remove last element
+	*remove first element
+	*examine first element
+	*examine last element
+
+
+Applications of Dequeue:
+
+	*Palindrome checker
+
+	*A-Steal job scheduling Algorithm
+
+		-->implements the task scheduling for multiple processors.
+		-->the processor gets the first element from the dequeue.
+		-->when one of the processor completes execution of its own threads it can steal a thread from  another processor.
+		-->It gets the last from the dequeue of another processor and executes it.
+
+	*Undo-Redo operations in Software Applications.s
+
+

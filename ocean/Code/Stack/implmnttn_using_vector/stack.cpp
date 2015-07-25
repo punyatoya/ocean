@@ -31,11 +31,7 @@ void stack::push(int element) {
 }
 
 int stack::top() {
-	if(!empty()) {
 		return elements.back();
-  } else {
-		return -1;
-	}
 }
 
 void stack::pop() {
@@ -51,6 +47,9 @@ int stack::size() {
 void print_stack_size(stack stack_obj) {
   if(!stack_obj.empty()) { 
        cout <<"\n size of the stack="<<stack_obj.size();
+       cout <<"\n top="<<stack_obj.top();
+   }else {
+       cout <<"\n Stack is empty";
    }
 }
 
